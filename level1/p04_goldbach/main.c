@@ -66,7 +66,5 @@ void main() {
         else{
             Odd(num);
         }
-
     }
-
 }
