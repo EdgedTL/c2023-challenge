@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <time.h>
-
+#include <stdbool.h>
 long long GetTime(){
     struct timespec ts;
     clock_gettime(CLOCK_MONOTONIC, &ts);
@@ -16,13 +16,14 @@ int main() {
     printf("2, ");
     for (int num = 3; num <= 1000; num+=2){
 
-        int factor = 0;
+        bool factor = false;
         for (int i=0;i<previous_prime;i++){
             if (num%prime[i]==0){
-            factor++;
+                factor = true;
+                break;
             }
         }
-        if(factor == 0){
+        if(!factor){
             printf("%d, ",num);
             prime[previous_prime] = num;
             previous_prime ++;
