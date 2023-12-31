@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include "prime.h"
 
-int prime[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
+//int prime[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
 
-
+int prime[];
 void Even(int num){
+
     int index;
     int a,b;
     for (index = 0; index < 26;index++){
@@ -58,8 +60,17 @@ void Odd(int num){
     printf("%d = %d + %d + %d\n", num,a,b,c);
 }
 void main() {
+    int i = 0;
+    for(int primes = 2; primes <= 2000; primes++){
+        if (is_prime(primes)){
+            prime[i] = primes;
+            i++;
+        }
+
+    }
+
     printf("4 = 2 + 2\n5 = 3 + 2\n");
-    for (int num = 6;num<=100;num++){
+    for (int num = 6;num<=1000;num++){
         if (num%2 == 0){
             Even(num);
         }

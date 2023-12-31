@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdbool.h>
+#include <math.h>
+#define target 100000
 long long GetTime(){
     struct timespec ts;
     clock_gettime(CLOCK_MONOTONIC, &ts);
@@ -9,12 +11,13 @@ long long GetTime(){
 }
 
 int main() {
+   // int size = (int)floor(sqrt(target))*2;
     long long start_time = GetTime();
-    int prime[168] ;
+    int prime[target/2];
     prime[0]=2;
     int previous_prime = 1;
     printf("2, ");
-    for (int num = 3; num <= 1000; num+=2){
+    for (int num = 3; num <= target; num+=2){
 
         bool factor = false;
         for (int i=0;i<previous_prime;i++){
